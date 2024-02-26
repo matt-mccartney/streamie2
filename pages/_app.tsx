@@ -1,7 +1,10 @@
 import type { AppProps } from "next/app";
+import { Quattrocento_Sans } from "next/font/google";
 import styled from "styled-components";
 
-const RootContainer = styled.div<any>`
+const quattrocentoSans = Quattrocento_Sans({ weight: "400", subsets: ["latin"] });
+
+const RootContainer = styled.div.attrs((props) => ({className: quattrocentoSans.className}))<any>`
 background: radial-gradient(circle, #22427E, #112140);
 `
 

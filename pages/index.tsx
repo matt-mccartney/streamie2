@@ -1,12 +1,12 @@
+"use client";
+
 import Head from "next/head";
 import Image from "next/image";
-import { Quattrocento_Sans } from "next/font/google";
 import styled from "styled-components";
 import Logo from "@/components/Logo/Logo";
+import { useRouter } from "next/router";
 
-const quattrocentoSans = Quattrocento_Sans({ weight: "400", subsets: ["latin"] });
-
-const Container = styled.div.attrs((props) => ({className: quattrocentoSans.className}))<any>`
+const Container = styled.div<any>`
 padding: 48px;
 padding-left: 4vw;
 padding-right: 4vw;
@@ -29,11 +29,41 @@ color:#55E798;
 `
 const StatsContainer = styled.div<any>`
 display: flex;
-gap: 16px;
-
+gap: 64px;
+flex-direction: flex-row;
+width: 100%;
+justify-content: center;
+`
+const Statistic = styled.p<any>`
+font-weight: 800;
+font-size: 50px;
+color: white;
+margin-top: 100px;
+`
+const StatSpan = styled.span`
+color:#55E798;
+`
+const Header = styled.nav<any>`
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+`
+const SignInButton = styled.button<any>`
+background-color:#55E798;
+border-radius: 99px;
+padding: 16px;
+padding-right: 24px;
+padding-left: 24px;
+color: white;
+font-weight: 800;
+font-size: 18px;
+border: none;
+outline: none;
 `
 
 export default function Home() {
+  const router = useRouter()
+
   return (
     <>
       <Head>
@@ -43,15 +73,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <Logo size={12}/>
+        <Header>
+          <Logo size={12}/>
+          <SignInButton onClick={() => router.push("/login")}>Login</SignInButton>
+        </Header>
         <HeroContainer>
           <HeroText><HeroSpan>one thousand</HeroSpan> streaming services in one.<br/>say hello to streamie.</HeroText>
           <Image style={{borderRadius: "12px"}} src={`/product.png`} width={911} height={607} alt="Product Image"></Image>
         </HeroContainer>
         <StatsContainer>
-          <span>
-            
-          </span>
+          <Statistic>
+            <StatSpan>5,000+</StatSpan> Movies
+          </Statistic>
+          <Statistic>
+            <StatSpan>3,000+</StatSpan> TV Shows
+          </Statistic>
+          <Statistic>
+            <StatSpan>2,500+</StatSpan> Providers
+          </Statistic>
         </StatsContainer>
       </Container>
     </>
