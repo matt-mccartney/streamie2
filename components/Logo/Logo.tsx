@@ -1,4 +1,5 @@
 import { Josefin_Sans } from "next/font/google";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 
 
@@ -16,12 +17,14 @@ color:#55E798;
 
 type LogoProps = {
     size?: number;
-    colorMode?: "light" | "dark"
+    colorMode?: "light" | "dark";
+    returnToHome?: boolean;
 }
-export default function Logo({size = 6, colorMode = "light"}: LogoProps){
+export default function Logo({size = 6, colorMode = "light", returnToHome = false}: LogoProps){
+    const router = useRouter()
     return (
         <LogoContainer>
-            <LogoType style={{fontSize: `${size*4}px`, color: `${colorMode === "light" ? "white" : "black"}`}} className={josefinSans.className}>
+            <LogoType onClick={returnToHome ? () => router.push("/") : () => {}} style={{fontSize: `${size*4}px`, color: `${colorMode === "light" ? "white" : "black"}`}} className={josefinSans.className}>
                 streamie
                 <LogoSpan>.</LogoSpan>
             </LogoType>
