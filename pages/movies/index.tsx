@@ -87,7 +87,7 @@ export default function Movies() {
       </HeaderContainer>
       <MovieShowcase displayTime={20000}/>
       <DisplayContainer>
-      {movieGenres?.map((genre, index) => <MovieCategory key={index} categoryName={genre.name} data={moviesByGenre[genre.id] || []}></MovieCategory>)}
+      {movieGenres?.map((genre, index) => <MovieCategory key={index} categoryId={genre.id} categoryName={genre.name} data={moviesByGenre[genre.id] || []}></MovieCategory>)}
       </DisplayContainer>
     </PageContainer>
   );
