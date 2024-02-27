@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const FormContainer = styled.div<any>`
   width: 400px;
@@ -60,6 +61,7 @@ const AuthForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,6 +77,7 @@ const AuthForm: React.FC = () => {
       );
       const data = await response.data;
       localStorage.setItem("user", JSON.stringify(data.user))
+      router.push("/movies")
     } catch (error: any) {
       setError(error.response.data.error);
     }
