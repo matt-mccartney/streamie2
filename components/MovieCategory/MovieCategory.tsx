@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Movie, { MovieProps } from "../Movie/Movie";
 import { useRouter } from "next/router";
+import { streamieGreen } from "@/library/constants/colors";
 
 type MovieCategory = {
   data: MovieProps[];
@@ -31,7 +32,7 @@ const CategoryLink = styled.a<any>`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-weight: 800;
-  color: {}
+  color: ${streamieGreen}
 `;
 
 function MovieCategoryPresentational({
