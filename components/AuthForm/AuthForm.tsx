@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { streamieGreen } from "@/library/constants/colors";
 
 const FormContainer = styled.div<any>`
   width: 400px;
@@ -24,12 +25,12 @@ const SignUpInput = styled.input<any>`
   border-radius: 4px;
   border: 2px solid #c7c7c7;
   &:focus {
-    border: 2px solid #55e798;
+    border: 2px solid ${streamieGreen};
   }
   outline: none;
 `;
 const SignUpButton = styled.button<any>`
-  background-color: #55e798;
+  background-color: ${streamieGreen};
   color: white;
   border-radius: 99px;
   outline: none;

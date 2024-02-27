@@ -1,3 +1,4 @@
+import { streamieGreen } from "@/library/constants/colors";
 import { Josefin_Sans } from "next/font/google";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -12,7 +13,7 @@ margin-block-start: 0px;
 margin-block-end: 0px;
 `
 const LogoSpan = styled.span`
-color:#55E798;
+color:${streamieGreen};
 `
 
 type LogoProps = {

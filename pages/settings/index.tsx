@@ -1,3 +1,4 @@
+import { streamieGreen } from "@/library/constants/colors";
 import { database } from "@/library/firebaseConfig";
 import { getMovieWatchProviders } from "@/utility/apis/moviedb";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -37,7 +38,7 @@ const SettingsContainer = styled.div<any>`
   border: 2px solid #d1d1d1
 `;
 const SaveButton = styled.button<any>`
-background-color:#55E798;
+background-color:${streamieGreen};
 border-radius: 99px;
 padding: 16px;
 padding-right: 24px;

@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import Logo from "@/components/Logo/Logo";
 import { useRouter } from "next/router";
+import { streamieGreen } from "@/library/constants/colors";
 
 const Container = styled.div<any>`
 padding: 48px;
@@ -25,7 +26,7 @@ font-size: 4vw;
 color: white;
 `
 const HeroSpan = styled.span<any>`
-color:#55E798;
+color:${streamieGreen};
 `
 const StatsContainer = styled.div<any>`
 display: flex;
@@ -41,7 +42,7 @@ color: white;
 margin-top: 100px;
 `
 const StatSpan = styled.span`
-color:#55E798;
+color:${streamieGreen};
 `
 const Header = styled.nav<any>`
 display: flex;
@@ -49,7 +50,7 @@ justify-content: space-between;
 flex-direction: row;
 `
 const SignInButton = styled.button<any>`
-background-color:#55E798;
+background-color:${streamieGreen};
 border-radius: 99px;
 padding: 16px;
 padding-right: 24px;

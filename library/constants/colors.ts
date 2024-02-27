@@ -1,0 +1,1 @@
+export const streamieGreen = "#55E798";
