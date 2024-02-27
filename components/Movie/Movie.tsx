@@ -32,7 +32,7 @@ export default function Movie({ title, id, poster_path }: MovieProps) {
   return (
     <>
       <MovieContainer onClick={() => router.push(`https://www.themoviedb.org/movie/${id}`)}>
-        <Image width={200} height={300} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title}></Image>
+        <Image style={{borderRadius: "12px"}} width={200} height={300} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title}></Image>
         <MovieInfoContainer>
           <MovieTitle>{title}</MovieTitle>
           {/*<Rating>

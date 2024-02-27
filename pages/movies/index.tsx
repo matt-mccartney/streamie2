@@ -17,6 +17,9 @@ display: flex;
 flex-direction: column;
 gap: 2vh;
 `;
+const DisplayContainer = styled.div<any>`
+width: 100%
+`
 const HeaderContainer = styled.div<any>`
 display: flex;
 justify-content: space-between;
@@ -83,7 +86,9 @@ export default function Movies() {
       <SettingsButton onClick={() => router.push("/settings")}>Settings</SettingsButton>
       </HeaderContainer>
       <MovieShowcase displayTime={20000}/>
+      <DisplayContainer>
       {movieGenres?.map((genre, index) => <MovieCategory key={index} categoryName={genre.name} data={moviesByGenre[genre.id] || []}></MovieCategory>)}
+      </DisplayContainer>
     </PageContainer>
   );
 }
