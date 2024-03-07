@@ -1,3 +1,4 @@
+import { inactiveGray } from "@/library/constants/colors";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -18,7 +19,7 @@ const MovieContainer = styled.div<any>`
 const MovieTitle = styled.p<any>`
 height: 100%;
 padding: 8px;
-color: #d1d1d1;
+color: ${inactiveGray};
 margin-block-start: 0px;
 margin-block-end: 0px;
 `;
@@ -32,7 +33,7 @@ export default function Movie({ title, id, poster_path }: MovieProps) {
   return (
     <>
       <MovieContainer onClick={() => router.push(`https://www.themoviedb.org/movie/${id}`)}>
-        <Image style={{borderRadius: "12px"}} width={200} height={300} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title}></Image>
+        <Image style={{borderRadius: "12px"}} width={160} height={240} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title}></Image>
         <MovieInfoContainer>
           <MovieTitle>{title}</MovieTitle>
           {/*<Rating>

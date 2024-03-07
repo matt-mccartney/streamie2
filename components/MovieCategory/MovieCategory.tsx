@@ -32,6 +32,7 @@ const CategoryLink = styled.a<any>`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-weight: 800;
+  cursor: pointer;
   color: ${streamieGreen}
 `;
 

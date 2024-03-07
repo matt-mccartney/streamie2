@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MovieProps } from "../Movie/Movie";
 import { getTrendingMovies } from "@/utility/apis/moviedb";
 import styled from "styled-components";
+import { inactiveGray } from "@/library/constants/colors";
 
 const ShowcaseContainer = styled.div<any>`
 height: 320px;
@@ -22,7 +23,7 @@ font-size: 3.5vw;
 filter: drop-shadow(0px 0px 10px #000);
 `
 const ShowcaseMovieDescription = styled.p<any>`
-color: #d1d1d1;
+color: ${inactiveGray};
 filter: drop-shadow(0px 0px 10px #000);
 `
 

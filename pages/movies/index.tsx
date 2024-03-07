@@ -23,7 +23,7 @@ width: 100%
 const HeaderContainer = styled.div<any>`
 display: flex;
 justify-content: space-between;
-
+align-items: center;
 `;
 const SettingsButton = styled.button<any>`
 padding: 8px;
