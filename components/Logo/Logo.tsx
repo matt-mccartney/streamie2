@@ -19,13 +19,13 @@ color:${streamieGreen};
 type LogoProps = {
     size?: number;
     colorMode?: "light" | "dark";
-    returnToHome?: boolean;
+    returnTo?: string | null;
 }
-export default function Logo({size = 6, colorMode = "light", returnToHome = false}: LogoProps){
+export default function Logo({size = 6, colorMode = "light", returnTo = null}: LogoProps){
     const router = useRouter()
     return (
         <LogoContainer>
-            <LogoType onClick={returnToHome ? () => router.push("/") : () => {}} style={{fontSize: `${size*4}px`, color: `${colorMode === "light" ? "white" : "black"}`}} className={josefinSans.className}>
+            <LogoType onClick={returnTo ? () => router.push(returnTo) : () => {}} style={{fontSize: `${size*4}px`, color: `${colorMode === "light" ? "white" : "black"}`}} className={josefinSans.className}>
                 streamie
                 <LogoSpan>.</LogoSpan>
             </LogoType>
