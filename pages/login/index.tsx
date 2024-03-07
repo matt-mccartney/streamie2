@@ -25,7 +25,7 @@ export default function SignIn() {
 
   return (
     <AuthContainer>
-      <Logo size={16} returnToHome={true}></Logo>
+      <Logo size={16} returnTo={"/"}></Logo>
       <AuthForm></AuthForm>
     </AuthContainer>
   );
