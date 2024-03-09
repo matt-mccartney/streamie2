@@ -1,7 +1,9 @@
 import Logo from "@/components/Logo/Logo";
+import Modal from "@/components/Modal/Modal";
 import { MovieProps } from "@/components/Movie/Movie";
 import MovieCategory from "@/components/MovieCategory/MovieCategory";
 import MovieShowcase from "@/components/MovieShowcase/MovieShowcase";
+import { backdropBlue } from "@/library/constants/colors";
 import { database } from "@/library/firebaseConfig";
 import { getMovieGenres, getMoviesByGenre } from "@/utility/apis/moviedb";
 import { doc, getDoc } from "firebase/firestore";
@@ -85,6 +87,7 @@ export default function Movies() {
       <Logo size={10}/>
       <SettingsButton onClick={() => router.push("/settings")}>Settings</SettingsButton>
       </HeaderContainer>
+      {false && <Modal></Modal>}
       <MovieShowcase displayTime={20000}/>
       <DisplayContainer>
       {movieGenres?.map((genre, index) => <MovieCategory key={index} categoryId={genre.id} categoryName={genre.name} data={moviesByGenre[genre.id] || []}></MovieCategory>)}

@@ -3,7 +3,7 @@ import axios from "axios";
 const APIKey =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MTZlNzllM2U3MDRlZDcyNWMyZjFhZGU1MTEzOWE1OCIsInN1YiI6IjYyZGI4OTU5ZTMyM2YzMDA1ZWQ0Njk5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FOvr94CdXQoj_xZ2EArjQ0S1Nz-TndKdhuW7yKsK1m0";
 
-export const movieDbGetRequest = async (httpUrl: string, keyName: string) => {
+export const movieDbGetRequest = async (httpUrl: string, keyName: string | null) => {
   let resp = await axios.get(httpUrl, {
     headers: {
       accept: "application/json",
@@ -11,7 +11,10 @@ export const movieDbGetRequest = async (httpUrl: string, keyName: string) => {
     },
   });
   if (resp.status === 200) {
-    return resp.data[keyName];
+    if (keyName !== null) {
+      return resp.data[keyName];
+    }
+    return resp.data;
   } else {
     throw new Error("Problem Fetching Data");
   }
@@ -37,3 +40,9 @@ export const getMovieWatchProviders = async () =>
     `https://api.themoviedb.org/3/watch/providers/movie?language=en-US`,
     "results"
   );
+
+export const getCompleteMovieDetails = async (id:number) =>
+  await movieDbGetRequest(
+  `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2Ccredits&language=en-US`,
+  null
+);

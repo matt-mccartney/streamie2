@@ -27,6 +27,8 @@ const CategoryMovieContainer = styled.div<any>`
   flex-direction: row;
   gap: 24px;
   overflow-y: scroll;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 const CategoryLink = styled.a<any>`
   text-transform: uppercase;
@@ -41,11 +43,11 @@ function MovieCategoryPresentational({
 }: MovieCategoryPresentationalProps) {
   return (
     <CategoryMovieContainer>
-      {data.map((movie) => (
+      {data.map((movie) => movie.backdrop_path && (
         <Movie
           id={movie.id}
           title={movie.title}
-          poster_path={movie.poster_path}
+          poster_path={movie.backdrop_path}
         />
       ))}
     </CategoryMovieContainer>
